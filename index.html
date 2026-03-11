@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Primary -->
+  <title>Inspecto — Inspeção 5S com IA | RHCTECH</title>
+  <meta name="description" content="Tire uma foto. A IA analisa, identifica conformidades e gera o relatório 5S automaticamente em segundos. Chega de formulários manuais. Conheça o Inspecto.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rhctech.com.br/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://rhctech.com.br/">
+  <meta property="og:title"       content="Inspecto — Inspeção 5S com IA | RHCTECH">
+  <meta property="og:description" content="Tire uma foto. A IA faz o resto. Relatórios 5S automáticos em segundos.">
+  <meta property="og:image"       content="https://rhctech.com.br/assets/images/og-image.jpg">
+  <meta property="og:locale"      content="pt_BR">
+  <meta property="og:site_name"   content="RHCTECH">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Inspecto — Inspeção 5S com IA | RHCTECH">
+  <meta name="twitter:description" content="Tire uma foto. A IA faz o resto. Relatórios 5S automáticos em segundos.">
+  <meta name="twitter:image"       content="https://rhctech.com.br/assets/images/og-image.jpg">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Inspecto",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "description": "Sistema de inspeção 5S com inteligência artificial. Tire uma foto e receba o relatório automaticamente.",
+    "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" },
+    "creator": {
+      "@type": "Organization",
+      "name": "RHCTECH",
+      "url": "https://rhctech.com.br",
+      "email": "contato@rhctech.com.br"
+    }
+  }
+  </script>
+
+  <!-- Fonts: preconnect primeiro, depois stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS — caminho relativo correto -->
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <!-- Favicon inline SVG (substituir por arquivo real) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect width='48' height='48' rx='10' fill='%230F2B6E'/><rect x='10' y='10' width='5' height='28' rx='2' fill='white'/><circle cx='40' cy='8' r='4' fill='%232563EB'/></svg>">
+</head>
+<body>
+
+  <!-- Skip link + Header (ver components/header.html) -->
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <header role="banner">
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="/" class="nav-logo" aria-label="RHCTECH — Página inicial">
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <rect width="48" height="48" rx="10" fill="#0F2B6E"/>
+          <rect x="10" y="10" width="5" height="28" rx="2" fill="white"/>
+          <path d="M15 10 L26 10 Q35 10 35 18 Q35 26 26 26 L15 26" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M15 26 L32 38" stroke="#2563EB" stroke-width="5" stroke-linecap="round"/>
+          <path d="M27 34 L32 38 L27 42" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="40" cy="8" r="4" fill="#2563EB"/>
+        </svg>
+        <span class="nav-wordmark">RHC<span>TECH</span></span>
+        <span class="nav-badge" aria-label="Primeiro app da RHCTECH">App #001</span>
+      </a>
+
+      <div class="nav-right">
+        <a href="#como-funciona" class="nav-link">Como funciona</a>
+        <a href="#funcionalidades" class="nav-link">Funcionalidades</a>
+        <a href="#contato" class="nav-cta">
+          Quero conhecer
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobile" hidden>
+      <a href="#como-funciona" class="mobile-link">Como funciona</a>
+      <a href="#funcionalidades" class="mobile-link">Funcionalidades</a>
+      <a href="#contato" class="mobile-link mobile-link--cta">Quero conhecer →</a>
+    </div>
+  </header>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero-label" aria-label="Produto: Inspecto — Inspeção 5S com IA">
+        <span class="hero-label-dot" aria-hidden="true"></span>
+        Inspecto · Inspeção 5S com IA
+      </div>
+
+      <h1 class="hero-title" id="hero-heading">
+        Tire uma foto.<br>
+        A <span class="highlight">IA faz</span> o resto.
+      </h1>
+
+      <p class="hero-sub">
+        Chega de formulários manuais. O Inspecto analisa suas inspeções 5S por fotos
+        e gera o relatório automaticamente — em segundos.
+      </p>
+
+      <div class="hero-trust" aria-label="Diferenciais">
+        <span class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Sem necessidade de treinamento
+        </span>
+        <span class="trust-sep" aria-hidden="true">·</span>
+        <span class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Relatório em segundos
+        </span>
+        <span class="trust-sep" aria-hidden="true">·</span>
+        <span class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Mobile &amp; Web
+        </span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#como-funciona" class="btn-primary">
+          Ver como funciona
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contato" class="btn-secondary">Falar com a RHCTECH</a>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-dot"></div>
+      </div>
+    </section>
+
+    <!-- PROBLEMA vs SOLUÇÃO -->
+    <section class="pvs" aria-labelledby="pvs-heading">
+      <div class="section-header">
+        <p class="section-tag">O problema que a gente resolve</p>
+        <h2 class="section-title" id="pvs-heading">
+          Antes era assim.<br>
+          <span class="highlight">Agora não precisa ser.</span>
+        </h2>
+      </div>
+
+      <div class="pvs-grid reveal" role="list" aria-label="Comparação: antes e depois do Inspecto">
+        <div class="pvs-col" role="listitem">
+          <div class="pvs-col-label pvs-col-label--before">
+            <span aria-hidden="true">❌</span> Antes — Forms / papel
+          </div>
+          <ul class="pvs-list">
+            <li class="pvs-item"><span class="pvs-icon" aria-hidden="true">📋</span><span>Preenchimento manual item por item, propenso a erros</span></li>
+            <li class="pvs-item"><span class="pvs-icon" aria-hidden="true">⏰</span><span>Horas gastas para concluir uma inspeção completa</span></li>
+            <li class="pvs-item"><span class="pvs-icon" aria-hidden="true">📁</span><span>Relatórios perdidos em pastas, e-mails ou gavetas</span></li>
+            <li class="pvs-item"><span class="pvs-icon" aria-hidden="true">😤</span><span>Inspetor frustrado com burocracia desnecessária</span></li>
+            <li class="pvs-item"><span class="pvs-icon" aria-hidden="true">📉</span><span>Dados inconsistentes, difíceis de comparar</span></li>
+          </ul>
+        </div>
+
+        <div class="pvs-divider" aria-hidden="true">
+          <div class="pvs-arrow-circle">→</div>
+        </div>
+
+        <div class="pvs-col" role="listitem">
+          <div class="pvs-col-label pvs-col-label--after">
+            <span aria-hidden="true">✅</span> Com Inspecto
+          </div>
+          <ul class="pvs-list">
+            <li class="pvs-item"><span class="pvs-icon" aria-hidden="true">📸</span><span>Tire a foto. A IA analisa e preenche automaticamente</span></li>
+            <li class="pvs-item"><span class="pvs-icon" aria-hidden="true">⚡</span><span>Inspeção completa em minutos, não horas</span></li>
+            <li class="pvs-item"><span class="pvs-icon" aria-hidden="true">☁️</span><span>Relatórios na nuvem, acessíveis de qualquer lugar</span></li>
+            <li class="pvs-item"><span class="pvs-icon" aria-hidden="true">😌</span><span>Inspetor focado no que importa: a inspeção em si</span></li>
+            <li class="pvs-item"><span class="pvs-icon" aria-hidden="true">📊</span><span>Histórico comparável, tendências visíveis</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="flow" id="como-funciona" aria-labelledby="flow-heading">
+      <div class="section-header reveal">
+        <p class="section-tag">Como funciona</p>
+        <h2 class="section-title" id="flow-heading">3 passos.<br>Relatório pronto.</h2>
+        <p class="section-sub">Simples por fora. Poderoso por dentro. Essa é a promessa da RHCTECH.</p>
+      </div>
+
+      <ol class="flow-steps reveal" aria-label="Passos do processo Inspecto">
+        <li class="flow-step">
+          <div class="flow-icon-wrap" aria-hidden="true"><span class="flow-icon">📸</span></div>
+          <p class="flow-num" aria-hidden="true">Passo 01</p>
+          <h3 class="flow-step-title">Tire a foto</h3>
+          <p class="flow-step-desc">No app mobile ou web, fotografe cada ponto da inspeção 5S. Sem formulário, sem digitação.</p>
+        </li>
+        <li class="flow-arrow" aria-hidden="true">→</li>
+        <li class="flow-step">
+          <div class="flow-icon-wrap" aria-hidden="true"><span class="flow-icon">🤖</span></div>
+          <p class="flow-num" aria-hidden="true">Passo 02</p>
+          <h3 class="flow-step-title">IA analisa</h3>
+          <p class="flow-step-desc">A inteligência artificial processa as imagens, identifica conformidades e não conformidades automaticamente.</p>
+        </li>
+        <li class="flow-arrow" aria-hidden="true">→</li>
+        <li class="flow-step">
+          <div class="flow-icon-wrap" aria-hidden="true"><span class="flow-icon">📄</span></div>
+          <p class="flow-num" aria-hidden="true">Passo 03</p>
+          <h3 class="flow-step-title">Relatório gerado</h3>
+          <p class="flow-step-desc">Relatório completo e profissional gerado em segundos. Pronto para compartilhar ou arquivar.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- FUNCIONALIDADES -->
+    <section class="features" id="funcionalidades" aria-labelledby="features-heading">
+      <div class="section-header reveal">
+        <p class="section-tag">Funcionalidades</p>
+        <h2 class="section-title" id="features-heading">Tudo que sua equipe<br>precisa para o 5S.</h2>
+      </div>
+
+      <ul class="features-grid" aria-label="Lista de funcionalidades">
+        <li class="feat-card reveal">
+          <span class="feat-icon" aria-hidden="true">🤖</span>
+          <h3 class="feat-title">IA Embarcada</h3>
+          <p class="feat-desc">Análise automática de fotos com inteligência artificial. Identifica conformidades sem intervenção manual.</p>
+        </li>
+        <li class="feat-card reveal">
+          <span class="feat-icon" aria-hidden="true">📱</span>
+          <h3 class="feat-title">Mobile + Web</h3>
+          <p class="feat-desc">Acesse pelo celular na linha de produção ou pelo computador na gestão. Tudo sincronizado em tempo real.</p>
+        </li>
+        <li class="feat-card reveal">
+          <span class="feat-icon" aria-hidden="true">📊</span>
+          <h3 class="feat-title">Relatórios Automáticos</h3>
+          <p class="feat-desc">Relatórios profissionais gerados em segundos, com fotos, pontuação e não conformidades destacadas.</p>
+        </li>
+        <li class="feat-card reveal">
+          <span class="feat-icon" aria-hidden="true">📈</span>
+          <h3 class="feat-title">Histórico e Tendências</h3>
+          <p class="feat-desc">Compare inspeções ao longo do tempo. Veja evolução por setor, equipe ou período.</p>
+        </li>
+        <li class="feat-card reveal">
+          <span class="feat-icon" aria-hidden="true">🏭</span>
+          <h3 class="feat-title">Qualquer Segmento</h3>
+          <p class="feat-desc">Indústria, comércio, saúde, logística. Se a empresa usa 5S, o Inspecto funciona.</p>
+        </li>
+        <li class="feat-card reveal">
+          <span class="feat-icon" aria-hidden="true">⚡</span>
+          <h3 class="feat-title">Entrega Rápida</h3>
+          <p class="feat-desc">Produto da RHCTECH: qualidade sem abrir mão do prazo. Implementação ágil e suporte próximo.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- CONFIANÇA -->
+    <section class="trust-section" aria-labelledby="trust-heading">
+      <div class="section-header reveal">
+        <p class="section-tag">Por que confiar</p>
+        <h2 class="section-title" id="trust-heading">Construído para<br><span class="highlight">o mundo real.</span></h2>
+      </div>
+      <div class="trust-grid reveal">
+        <div class="trust-card">
+          <div class="trust-card-icon" aria-hidden="true">🔒</div>
+          <h3 class="trust-card-title">Dados seguros</h3>
+          <p class="trust-card-desc">Transmissão criptografada (HTTPS). Seus dados de inspeção são confidenciais e protegidos.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card-icon" aria-hidden="true">☁️</div>
+          <h3 class="trust-card-title">Nuvem confiável</h3>
+          <p class="trust-card-desc">Infraestrutura em nuvem com backups automáticos. Nunca perca um relatório.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card-icon" aria-hidden="true">🇧🇷</div>
+          <h3 class="trust-card-title">Feito no Brasil</h3>
+          <p class="trust-card-desc">Produto 100% nacional, desenvolvido por quem entende a realidade das empresas brasileiras.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-card-icon" aria-hidden="true">🤝</div>
+          <h3 class="trust-card-title">Suporte próximo</h3>
+          <p class="trust-card-desc">Atendimento direto com os desenvolvedores. Sem call center, sem burocracia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL / CONTATO -->
+    <section class="banner" id="contato" aria-labelledby="banner-heading">
+      <div class="banner-inner">
+        <p class="banner-eyebrow">Um produto</p>
+        <h2 class="banner-title reveal" id="banner-heading">
+          Feito por quem<br>
+          viveu o <span class="highlight">problema.</span>
+        </h2>
+        <p class="banner-sub reveal">
+          A RHCTECH nasceu da insatisfação de um usuário que cansou de ferramentas complicadas
+          e prazos não cumpridos. O Inspecto é a primeira prova disso.
+        </p>
+
+        <ul class="banner-pillars reveal" aria-label="Valores da RHCTECH">
+          <li class="pillar"><span class="pillar-dot" aria-hidden="true"></span>Qualidade sem concessão</li>
+          <li class="pillar"><span class="pillar-dot" aria-hidden="true"></span>Entrega no prazo</li>
+          <li class="pillar"><span class="pillar-dot" aria-hidden="true"></span>Simples de usar</li>
+          <li class="pillar"><span class="pillar-dot" aria-hidden="true"></span>Suporte próximo</li>
+        </ul>
+
+        <div class="contact-box reveal">
+          <p class="contact-box-title">Quer uma demonstração?</p>
+          <p class="contact-box-sub">Envie seu e-mail e entraremos em contato em até 24h.</p>
+          <form class="contact-form" action="https://formspree.io/f/SEU_ID_AQUI" method="POST" aria-label="Formulário de contato">
+            <label for="email-input" class="visually-hidden">Seu e-mail profissional</label>
+            <input
+              type="email"
+              id="email-input"
+              name="email"
+              placeholder="seu@email.com.br"
+              required
+              autocomplete="email"
+              class="contact-input"
+              aria-describedby="email-hint"
+            >
+            <span id="email-hint" class="visually-hidden">Digite seu e-mail corporativo para receber o contato da RHCTECH</span>
+            <button type="submit" class="btn-primary contact-btn">
+              Quero uma demo
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+          <p class="contact-disclaimer">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 14a1 1 0 110-2 1 1 0 010 2zm1-4H11V7h2v5z"/></svg>
+            Sem spam. Apenas o contato da equipe RHCTECH.
+          </p>
+          <p class="contact-alt">
+            Prefere falar direto?
+            <a href="mailto:contato@rhctech.com.br" class="contact-email-link">contato@rhctech.com.br</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (ver components/footer.html) -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-left">
+      <div class="footer-logo-text" aria-label="RHCTECH">RHC<span>TECH</span></div>
+      <div class="footer-tagline">Do problema ao produto.</div>
+    </div>
+    <nav class="footer-links" aria-label="Links do rodapé">
+      <a href="mailto:contato@rhctech.com.br" class="footer-link">Contato</a>
+      <a href="pages/privacidade.html" class="footer-link">Política de Privacidade</a>
+      <a href="pages/termos.html"      class="footer-link">Termos de Uso</a>
+    </nav>
+    <div class="footer-right">
+      <span>Inspecto · App #001</span>
+      <span>Brasil 🇧🇷 · 2026</span>
+      <a href="https://rhctech.com.br" class="footer-domain">rhctech.com.br</a>
+    </div>
+  </footer>
+
+  <!-- JS — caminho relativo correto -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

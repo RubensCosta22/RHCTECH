@@ -1,0 +1,8 @@
+# robots.txt — RHCTECH Inspecto
+# https://rhctech.com.br
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://rhctech.com.br/sitemap.xml

@@ -1,0 +1,51 @@
+<!--
+  components/header.html
+  Componente de cabeçalho reutilizável.
+
+  ATENÇÃO: Este arquivo é um fragmento HTML — ele NÃO deve ser aberto
+  diretamente no navegador. É referência para copiar/incluir via
+  SSG (11ty, Astro), servidor (PHP, Node) ou build tool.
+
+  Para uso no Netlify com apenas HTML estático, copie este bloco
+  dentro de cada page que precisar.
+-->
+
+<a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+<header role="banner">
+  <nav class="nav" aria-label="Navegação principal">
+    <a href="/" class="nav-logo" aria-label="RHCTECH — Página inicial">
+      <svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <rect width="48" height="48" rx="10" fill="#0F2B6E"/>
+        <rect x="10" y="10" width="5" height="28" rx="2" fill="white"/>
+        <path d="M15 10 L26 10 Q35 10 35 18 Q35 26 26 26 L15 26" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M15 26 L32 38" stroke="#2563EB" stroke-width="5" stroke-linecap="round"/>
+        <path d="M27 34 L32 38 L27 42" stroke="#2563EB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="40" cy="8" r="4" fill="#2563EB"/>
+      </svg>
+      <span class="nav-wordmark">RHC<span>TECH</span></span>
+      <span class="nav-badge" aria-label="Primeiro app da RHCTECH">App #001</span>
+    </a>
+
+    <div class="nav-right">
+      <a href="/#como-funciona" class="nav-link">Como funciona</a>
+      <a href="/#funcionalidades" class="nav-link">Funcionalidades</a>
+      <a href="/#contato" class="nav-cta">
+        Quero conhecer
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobile" hidden>
+    <a href="/#como-funciona" class="mobile-link">Como funciona</a>
+    <a href="/#funcionalidades" class="mobile-link">Funcionalidades</a>
+    <a href="/#contato" class="mobile-link mobile-link--cta">Quero conhecer →</a>
+  </div>
+</header>
