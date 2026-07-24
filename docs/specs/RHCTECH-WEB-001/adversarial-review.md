@@ -4,7 +4,7 @@
 
 ## 1. Review Context
 
-- **Spec ID / Version:** RHCTECH-WEB-001 v1.0
+- **Spec ID / Version:** RHCTECH-WEB-001 v1.1
 - **Risk Tier:** R2 — Medium
 - **Reviewed artifact:** `docs/specs/RHCTECH-WEB-001/spec.md`
 - **Reviewer:** Independent AI adversarial review pass
@@ -19,95 +19,110 @@
 
 | ID | Severity | Area | Finding | Required action | Status |
 |---|---|---|---|---|---|
-| AR-01 | Major | Commercial truthfulness | The current production page contains quantitative-looking product cards in the hero (`247 treinos`, `1.284 km`) but the Spec only prohibits fake traction generally; implementation could preserve or replace them with similarly ambiguous values. | Explicitly require removal of unsupported company/product traction metrics from the corporate hero unless the value is sourced and contextualized. | Resolved in Spec intent; must be enforced in implementation. |
-| AR-02 | Major | CTA behavior | `Conhecer` / `Explorar` is specified, but destination behavior is not defined. A CTA that points nowhere or only scrolls vaguely could satisfy wording while failing user intent. | Define each active-product CTA destination before release: live product, dedicated product page, or clearly intentional in-page product detail. No dead/placeholder CTA. | Open — implementation decision required before Ready. |
-| AR-03 | Major | Product imagery | The Spec requires real UI as evidence but does not specify freshness/quality. Old, blurry, misleading or privacy-sensitive screenshots could technically pass. | Require current representative screenshots, no exposed personal identifiers, and adequate resolution/cropping for intended viewport. | Resolved by adding implementation constraint below. |
-| AR-04 | Major | Source-of-truth drift | RHCTECH repo does not yet explicitly declare `RHC-Tech-Engineering` as its governing engineering authority. This first R2 work could become an exception to the newly established process. | Add local engineering-governance reference as part of this documentation PR before implementation begins. | Open. |
-| AR-05 | Minor | Inspecto | The Spec says Inspecto may remain visible, but the current page heavily frames the company as three products. Since Inspecto is paused, it could still dilute trust or create false breadth. | Treat Inspecto as clearly secondary/paused and never equal in visual weight to active products. | Covered by FR-05; verify visually. |
-| AR-06 | Minor | Performance target | Lighthouse thresholds are useful but can fluctuate. A single score can encourage gaming instead of actual performance. | Record test conditions and inspect LCP/CLS/INP-related evidence in addition to headline score where available. | Open — add to verification plan. |
-| AR-07 | Minor | Contact flow | Existing README documents Formspree/mailto behavior, but the redesign Spec does not decide whether contact functionality will be touched. | Preserve current contact behavior unless explicitly brought into scope; if changed, trigger Security/Privacy conditional controls. | Resolved by scope rule. |
+| AR-01 | Major | Commercial truthfulness | Quantitative hero cards could be interpreted as unsupported traction. | Prohibit unsupported traction-looking metrics in corporate hero. | Resolved in Spec v1.1. |
+| AR-02 | Major | CTA behavior | Active product CTA destinations were undefined. | Fix exact live destinations and prohibit dead/placeholder CTAs. | Resolved: Training → `https://rhc-training.onrender.com/`; H&NTrip → `https://h-ntrip.onrender.com/`. |
+| AR-03 | Major | Product imagery | Real UI requirement did not guarantee freshness, legibility or privacy safety. | Require current, representative, sufficiently high-resolution and privacy-safe imagery. | Resolved in Spec v1.1. |
+| AR-04 | Major | Source-of-truth drift | RHCTECH did not explicitly declare central engineering authority. | Add local governance reference to `RubensCosta22/RHC-Tech-Engineering`. | Resolved via `docs/README.md`. |
+| AR-05 | Minor | Inspecto | Paused product could still dilute trust if given equal weight. | Keep Inspecto clearly secondary and paused. | Covered by FR-05 / AC-13. |
+| AR-06 | Minor | Performance | Headline Lighthouse score alone can encourage score gaming. | Record conditions and inspect underlying web-vital-related evidence. | Resolved in Sections 15/17/AC-10. |
+| AR-07 | Minor | Contact flow | Redesign could accidentally alter contact-data behavior. | Preserve contact behavior unless explicitly re-scoped. | Resolved by Non-Goals and Security requirements. |
 
 ## 4. Risk Tier Challenge
 
-R2 is appropriate provided implementation remains frontend presentation only.
+R2 remains appropriate provided implementation stays frontend presentation-only.
 
-Escalate/re-review if implementation introduces:
+Return the Spec to review and reconsider controls if implementation introduces:
 
-- new analytics/tracking;
+- analytics or tracking;
 - new third-party scripts;
 - new framework/build system;
-- authentication or account flows;
-- contact-data collection changes;
+- authentication/account flows;
+- changed contact-data collection;
 - backend/API changes;
 - material deployment/security-header changes.
 
 ## 5. Requirement Challenge
 
-The visual requirements are substantially testable because they include specific anti-patterns and acceptance criteria. The largest remaining ambiguity is CTA destination behavior.
+The previously ambiguous product continuation path is now explicit and testable.
 
-Required clarification before Ready:
+Approved destinations:
 
-- RHC Training CTA target;
-- H&NTrip CTA target.
+- RHC Training: `https://rhc-training.onrender.com/`
+- H&NTrip: `https://h-ntrip.onrender.com/`
 
-A disabled, `#`, placeholder, or misleading CTA is not acceptable.
+A disabled, `#`, placeholder or misleading CTA is explicitly prohibited.
 
 ## 6. Security & Data Challenge
 
 No direct backend/data exposure is expected.
 
-Implementation must ensure screenshots/assets do not expose:
+Public screenshots/assets must be rejected if they expose unintended:
 
 - personal email addresses;
 - tokens/keys;
-- private trip/user data that should not be public;
+- private trip/user data;
 - admin-only information;
-- real sensitive financial/personal details without intentional consent/publication.
+- sensitive financial/personal information.
+
+No new tracking, external scripts or data collection are approved by this Spec.
 
 ## 7. Architecture & Reliability Challenge
 
-The current site is static HTML/CSS/vanilla JS and already deploys without a build pipeline. Adding a framework purely for visual redesign would increase complexity, supply-chain surface and deployment risk without demonstrated need.
+The current site is static HTML/CSS/vanilla JS. A framework migration would increase complexity, supply-chain surface and deployment risk without demonstrated need.
 
-Default decision: preserve static architecture.
+**Decision:** preserve the static architecture for this redesign.
+
+Core content, navigation and product CTAs must continue to work even if animation APIs fail or motion is disabled.
 
 ## 8. UX & Brand Challenge
 
-The redesign must be rejected if it merely replaces the current layout with:
+Reject implementation that merely replaces the current design with:
 
 - glowing bento cards;
 - generic glassmorphism;
 - decorative dashboards;
-- oversized browser mockups with unreadable content;
+- oversized browser frames containing unreadable UI;
 - identical product sections recolored per product;
-- excessive motion masking weak hierarchy.
+- excessive motion masking weak hierarchy;
+- fake metrics or unsupported social proof.
 
 Product evidence must remain legible at common desktop sizes and meaningful on mobile.
 
-## 9. Additional Acceptance Constraints
+## 9. Follow-up Review Result
 
-Before implementation begins, add/confirm:
+The follow-up pass tested the two former Major blockers:
 
-1. Active-product CTA destinations are explicit and functional.
-2. Product screenshots are current, representative, privacy-safe and sufficiently high resolution.
-3. RHCTECH repo points to `RHC-Tech-Engineering` as the governing SDD authority.
-4. Verification captures performance conditions and key web-vital indicators where tooling provides them.
+### AR-02 — CTA destinations
+Resolved. Exact product destinations are now normative requirements and acceptance criteria.
+
+### AR-04 — governance authority
+Resolved. `docs/README.md` now declares `RubensCosta22/RHC-Tech-Engineering` as the corporate source of truth and states that the central Standard wins on conflict.
+
+No new Blocker or Major finding was introduced by these corrections.
 
 ## 10. Approval Verdict
 
-- [ ] APPROVE
-- [x] RETURN TO DRAFT / REVIEW
+- [x] **APPROVE**
+- [ ] RETURN TO DRAFT / REVIEW
 
 ### Blocking findings remaining
 
-0 Blocker.
+**0 Blocker.**
 
 ### Major findings remaining
 
-2 unresolved Major:
+**0 Major.**
 
-- AR-02 — CTA destinations are undefined.
-- AR-04 — local governance authority reference is missing.
+### Minor findings remaining
+
+No Minor finding blocks Ready. AR-05 is an explicit visual verification item during implementation.
+
+### Human owner approval
+
+Recorded on 2026-07-24: the owner supplied the final live CTA destinations and instructed the work to continue.
 
 ### Reviewer conclusion
 
-The redesign direction is strong and the R2 classification is appropriate, but **the Spec is not Ready for Code yet**. Resolve AR-02 and AR-04, update the Spec, then perform a short follow-up adversarial check and obtain explicit human-owner approval.
+**RHCTECH-WEB-001 v1.1 is Approved and Ready for Implementation.**
+
+Implementation must remain within the approved static frontend scope. Any discovery that changes architecture, privacy/data collection, third-party dependencies or security behavior returns the item to Spec Review before code proceeds.
