@@ -5,83 +5,95 @@
 - **Spec:** RHCTECH-WEB-001 v1.1
 - **Risk Tier:** R2 — Medium
 - **Branch:** `agent/spec-rhctech-web-001`
-- **Verifier:** AI implementation/review pass + human visual acceptance pending
+- **Current reviewed head before this record update:** `bc36632f6d995d9475eec4032d8d9b1e006f183f`
+- **Verifier:** AI implementation/review pass + human owner visual acceptance
 - **Environment:** Cloudflare Pages branch preview
+- **Human visual approval:** APPROVED — 2026-07-24
 
-## 2. Static Acceptance Evidence
+## 2. Acceptance Evidence
 
 | AC | Evidence | Result |
 |---|---|---|
-| AC-01 Product understanding | Hero identifies RHC Tech as product company; Training and H&NTrip have separate showcase narratives. | Pass — code inspection |
-| AC-02 Product evidence | Both active products use real product UI as large visual surfaces. Current product captures were re-supplied on 2026-07-24 after visual review found stale/poor presentation. | Re-test pending preview |
-| AC-03 Distinct composition | Training and H&NTrip use different layout/composition. | Pass — structural inspection |
-| AC-04 Training CTA | `https://rhc-training.onrender.com/` with label `Conhecer RHC Training`. | Pass |
-| AC-05 H&NTrip CTA | `https://h-ntrip.onrender.com/` with label `Explorar H&NTrip`. | Pass |
+| AC-01 Product understanding | Hero identifies RHC Tech as product company; Training and H&NTrip have separate showcase narratives. | Pass |
+| AC-02 Product evidence | Both active products use current real product UI as primary visual evidence. Replacement captures were reviewed and approved by the owner. | **Pass — human visual acceptance** |
+| AC-03 Distinct composition | Training and H&NTrip use materially different layout/composition. | Pass |
+| AC-04 Training CTA | `https://rhc-training.onrender.com/` with label `Conhecer RHC Training`. | Pass — source inspection |
+| AC-05 H&NTrip CTA | `https://h-ntrip.onrender.com/` with label `Explorar H&NTrip`. | Pass — source inspection |
 | AC-06 No fake traction | Former hero cards with unsupported metrics are removed. | Pass |
-| AC-07 Dark hierarchy | Separate tokens exist for background, surfaces, borders and product stages. | Pending visual confirmation |
-| AC-08 Mobile quality | Dedicated mobile composition exists. | Pending manual preview |
-| AC-09 Accessibility | Skip link, semantic landmarks, focus-visible, reduced-motion and ARIA mobile menu state are present. | Partial pass; runtime review pending |
+| AC-07 Dark hierarchy | Background, surfaces, borders and product-specific stages were visually accepted by the owner. | **Pass — human visual acceptance** |
+| AC-08 Responsive quality | Dedicated responsive compositions exist. Full device-specific manual regression remains required before release. | Partial — runtime/device checks pending |
+| AC-09 Accessibility | Skip link, semantic landmarks, focus-visible, reduced-motion and ARIA mobile-menu state are present. | Partial — runtime keyboard/menu check pending |
 | AC-10 Performance | Static architecture retained; no framework/dependency/video added. | Lighthouse pending |
-| AC-11 Privacy-safe evidence | H&NTrip replacement capture excludes the personal-email area; Training replacement capture shows product UI without the previously missing image. | Re-test pending preview |
+| AC-11 Privacy-safe evidence | H&NTrip published capture excludes the personal-email region; replacement evidence was visually approved. | **Pass — privacy correction + human confirmation** |
 | AC-12 Architecture preservation | No backend/database/auth/RLS/dependency changes. | Pass |
 | AC-13 Inspecto honesty | Inspecto remains subordinate and explicitly paused. | Pass |
+| AC-14 Contact channels | Contact section now exposes LinkedIn `https://www.linkedin.com/in/rubens-hcosta/` and `mailto:rhc.techbr@gmail.com`; obsolete `contato@rhctech.com.br` removed. | Pass — source inspection |
 
-## 3. Visual Review Findings — Round 1
+## 3. Visual Review History
 
-Human review of the first Cloudflare preview identified two release-blocking presentation defects:
+### Round 1 — Rejected
 
-1. **RHC Training:** intended current product image was not being presented correctly in the showcase.
-2. **H&NTrip:** the displayed capture was visibly pixelated and the source capture exposed a personal email address in the header.
+Human review identified two release-blocking presentation defects:
 
-These findings block G7 UX, G8 Brand and G10 Privacy until corrected and re-reviewed.
+1. RHC Training current product evidence was not presented correctly.
+2. H&NTrip evidence was pixelated and exposed a personal email address.
 
-## 4. Corrective Action
+This correctly blocked G7 UX, G8 Brand and G10 Privacy.
 
-- Current RHC Training capture supplied by the owner and promoted to the canonical website asset path.
-- Current H&NTrip capture supplied by the owner; privacy-safe crop supplied without the personal-email region and promoted to the canonical website asset path.
-- Existing public asset paths are preserved so the current page markup consumes the corrected evidence without introducing a new application/runtime dependency.
-- Visual scaling/crop remains subject to the second preview review; any remaining visible degradation must be corrected before Ready-to-Merge.
+### Corrective action
 
-## 5. Manual Verification Required Before Ready-to-Merge
+- Current RHC Training capture promoted to the canonical website asset.
+- Current H&NTrip privacy-safe capture promoted to the canonical website asset.
+- Forced screenshot zoom/crop (`108%`, `112%`, `116%`, `118%` plus translation) removed.
+- Product captures now preserve their source aspect ratio with non-destructive presentation.
+- Contact channels changed to owner-approved LinkedIn and email.
 
-- [ ] Second desktop visual review at approximately 1440px+
+### Round 2 — Approved
+
+The human owner explicitly approved the corrected visual release candidate on 2026-07-24.
+
+**Result:** visual product evidence, composition and privacy correction accepted.
+
+## 4. Remaining Verification Before Ready-to-Merge
+
 - [ ] Laptop review around 1280px
 - [ ] Tablet review
 - [ ] Mobile review around 390px
 - [ ] No horizontal overflow
-- [ ] RHC Training current capture is visible, sharp and commercially credible
-- [ ] H&NTrip current capture is sharp and contains no exposed personal email/details
-- [ ] Product CTAs open correct live products
-- [ ] Keyboard navigation and mobile-menu behavior
-- [ ] `prefers-reduced-motion` behavior
+- [x] RHC Training current capture is visible, sharp and commercially credible — owner approved
+- [x] H&NTrip current capture is sharp and contains no exposed personal email/details — owner approved
+- [x] Product CTA hrefs point to the approved live products — source inspection
+- [ ] Keyboard navigation and mobile-menu runtime behavior
+- [ ] `prefers-reduced-motion` runtime behavior
 - [ ] Image-failure/fallback sanity check
-- [ ] Contact and legal-link regression check
+- [x] Contact hrefs updated to LinkedIn and `rhc.techbr@gmail.com` — source inspection
+- [ ] Legal-link regression runtime check
 - [ ] Lighthouse representative mobile run with conditions recorded
 - [ ] Record LCP / CLS / INP or available proxy
-- [ ] Human owner visual acceptance
+- [x] Human owner visual acceptance
 
-## 6. Quality Gates — Current State
+## 5. Quality Gates — Current State
 
 | Gate | Result |
 |---|---|
-| G1 Spec Compliance | Pass so far |
-| G2 Build / static validity | Cloudflare preview required after asset correction |
-| G3 Static Quality | Pass by code inspection; further review pending |
-| G4 Tests | Manual checks pending |
-| G5 Security | No new security surface |
+| G1 Spec Compliance | Pass |
+| G2 Build / static validity | Cloudflare preview deployment observed during review; final-head confirmation pending |
+| G3 Static Quality | Pass by code inspection |
+| G4 Tests | Manual runtime checks pending |
+| G5 Security | Pass for changed surface — no new security/auth/data-processing capability introduced |
 | G6 Permissions | N/A — no auth/permissions change |
-| G7 UX | **Blocked pending second visual review** |
-| G8 Brand | **Blocked pending second visual review** |
-| G9 Observability / failure handling | Manual sanity pending |
-| G10 Privacy | **Correction applied; second visual confirmation pending** |
+| G7 UX | **Pass — human owner visual acceptance** |
+| G8 Brand | **Pass — human owner visual acceptance** |
+| G9 Observability / failure handling | Runtime/fallback sanity pending |
+| G10 Privacy | **Pass — personal-email exposure removed and visually confirmed** |
 | G11 Supply Chain | Pass — no dependency added |
-| G12 Performance & Reliability | Lighthouse pending |
-| G13 Regression | Contact/legal/nav/manual regression pending |
+| G12 Performance & Reliability | **Pending Lighthouse / Web Vitals proxy** |
+| G13 Regression | Runtime navigation/contact/legal checks pending |
 
-## 7. Definition of Done
+## 6. Definition of Done
 
 **NOT DONE YET.**
 
-The first visual review correctly rejected the release candidate. The replacement product evidence has now been supplied, but the PR must remain Draft until the new Cloudflare preview is visually reviewed and the remaining mandatory gates pass.
+The visual release candidate is approved and the previously blocking UX/Brand/Privacy findings are closed. The PR remains Draft only for objective runtime, responsive, accessibility, regression and performance evidence.
 
 **No evidence → No Done. No passed mandatory gates → No Release.**
